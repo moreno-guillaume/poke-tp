@@ -1,1 +1,23 @@
-.idea/
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/.env.dev
+/public/bundles/
+/var/
+/vendor/
+
+
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+
+
+###> php-cs-fixer ###
+/.php-cs-fixer.cache
+
+
+###> IDE ###
+/.idea/
+/.vscode/
+###> 
