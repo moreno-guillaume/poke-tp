@@ -2,17 +2,22 @@
 
 namespace App\Controller;
 
+use Doctrine\DBAL\Connection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class IndexController extends AbstractController
+class IndexController extends AbstractController
 {
-    #[Route('/index', name: 'app_index')]
-    public function index(): Response
+    #[Route('/', name: 'app_index')]
+    public function index(Connection $connection): Response
     {
+        // Test connexion BDD
+        $tables = $connection->createSchemaManager()->listTableNames();
+
         return $this->render('index/index.html.twig', [
-            'controller_name' => 'IndexController',
+            'tables' => $tables,
+            'db_connected' => true,
         ]);
     }
 }
