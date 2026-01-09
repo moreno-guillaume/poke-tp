@@ -25,3 +25,11 @@ docker compose exec php composer require --dev symfony/maker-bundle
 # Init d'un Controller pour l'index ( vue simple BDD )
 docker compose exec php bin/console make:controller IndexController
 
+# Generation / execution d'une migration
+docker compose exec php bin/console make:migration
+docker compose exec php bin/console doctrine:migrations:migrate
+
+# Bundle security / creation table user 
+docker compose exec php composer require security
+docker compose exec php bin/console make:user
+
