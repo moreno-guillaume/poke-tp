@@ -1,20 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Pokdex - Accueil{% endblock %}
+{% block title %}Pokedex - Accueil{% endblock %}
 
 {% block body %}
     <h1>Bienvenue {{ app.user.userIdentifier }} !</h1>
 
-    <p>Connexion BDD OK</p>
-
-    <h2>Tables en base :</h2>
-    {% if tables|length > 0 %}
+    <h2>Mon Pokedex ({{ pokedex|length }}/{{ totalPokemons }})</h2>
+    {% if pokedex|length > 0 %}
         <ul>
-            {% for table in tables %}
-                <li>{{ table }}</li>
+            {% for entry in pokedex %}
+                <li>{{ entry.pokemon.label }}</li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>Aucune table</p>
+        <p>Aucun pokemon dans ton pokdex.</p>
     {% endif %}
+
+    <hr>
+
+    <h2>Tables en base :</h2>
+    <ul>
+        {% for table in tables %}
+            <li>{{ table }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
