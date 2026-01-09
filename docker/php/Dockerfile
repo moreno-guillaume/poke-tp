@@ -37,3 +37,6 @@ USER www
 # Expose port 9000 and start php server
 EXPOSE 9000
 CMD ["php-fpm"]
+
+# Fix git safe directory issue
+RUN git config --global --add safe.directory /var/www
