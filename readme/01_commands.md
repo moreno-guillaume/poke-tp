@@ -22,6 +22,6 @@ docker compose exec php bin/console doctrine:database:create --if-not-exists
 # Installation du makerBundle
 docker compose exec php composer require --dev symfony/maker-bundle
 
-# Init d'un Controller ( vue simple )
+# Init d'un Controller pour l'index ( vue simple BDD )
 docker compose exec php bin/console make:controller IndexController
 
