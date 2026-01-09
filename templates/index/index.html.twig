@@ -1,15 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Pokdex - Test{% endblock %}
+{% block title %}Pokdex - Accueil{% endblock %}
 
 {% block body %}
-    <h1>Pokedex TP</h1>
+    <h1>Bienvenue {{ app.user.userIdentifier }} !</h1>
 
-    {% if db_connected %}
-        <p>Connexion BDD OK</p>
-    {% else %}
-        <p>Connexion BDD KO</p>
-    {% endif %}
+    <p>Connexion BDD OK</p>
 
     <h2>Tables en base :</h2>
     {% if tables|length > 0 %}
@@ -19,6 +15,6 @@
             {% endfor %}
         </ul>
     {% else %}
-        <p>Aucune table </p>
+        <p>Aucune table</p>
     {% endif %}
 {% endblock %}
